@@ -8,6 +8,7 @@ export const parseFragment = (fragment) => {
     fragment.map((el) => {
       const keyValPair = el.split("=");
       parsedData[keyValPair[0]] = capFLetter(keyValPair[1]);
+      return el;
     });
   }
   return parsedData;

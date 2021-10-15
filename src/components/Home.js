@@ -1,5 +1,12 @@
 import React, { useContext } from "react";
-import { Container, Text, Heading, Center, Image } from "@chakra-ui/react";
+import {
+  Container,
+  Text,
+  Heading,
+  Center,
+  Image,
+  Spinner,
+} from "@chakra-ui/react";
 import { UserContext } from "../context/UserContext";
 import Zoll from "../img/zoll.png";
 
@@ -18,7 +25,7 @@ const Home = () => {
       <Center boxSize="3xs" m="auto" mb="3rem">
         <Image src={Zoll} alt="Zoll Logo" />
       </Center>
-      {user && (
+      {user ? (
         <>
           <Heading mb="1rem">Hallo {`${user.fName} ${user.lName}`}</Heading>
 
@@ -30,6 +37,10 @@ const Home = () => {
             <b>{user.dueDate}</b>
           </Text>
         </>
+      ) : (
+        <Center>
+          <Spinner />
+        </Center>
       )}
     </Container>
   );

@@ -6,11 +6,11 @@ import Home from "./components/Home";
 function App() {
   return (
     <Router>
-      <UserContext>
-        <ChakraProvider>
+      <ChakraProvider>
+        <UserContext>
           <Home />
-        </ChakraProvider>
-      </UserContext>
+        </UserContext>
+      </ChakraProvider>
     </Router>
   );
 }

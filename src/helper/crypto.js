@@ -57,6 +57,6 @@ export async function aesGcmDecrypt(ciphertext, password) {
     const plaintext = new TextDecoder().decode(plainBuffer); // plaintext from ArrayBuffer
     return plaintext; // return the plaintext
   } catch (e) {
-    throw "Decrypt failed";
+    throw new Error("Decrypt failed");
   }
 }

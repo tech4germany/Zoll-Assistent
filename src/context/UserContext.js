@@ -10,7 +10,6 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalCloseButton,
   FormControl,
   FormLabel,
   FormErrorMessage,
@@ -30,15 +29,14 @@ const UserContextWrapper = ({ children }) => {
   const [user, setUser] = useState();
   const [taxNumber, setTaxNumber] = useState();
   const [cipher, setCipher] = useState("");
-  const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
-  const [plain, setPlain] = useState();
+  const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true });
   const location = useLocation();
 
   useEffect(() => {
     const urlCipher = location.hash.slice(1);
     getAndStoreCiph(urlCipher, setCipher);
     console.log("got cipher", cipher);
-  }, []);
+  }, [location.hash, cipher]);
 
   useEffect(() => {
     // const cipher =
@@ -50,7 +48,7 @@ const UserContextWrapper = ({ children }) => {
         onClose();
       })
       .catch((e) => console.log(e));
-  }, [location.hash, plain, taxNumber]);
+  }, [location.hash, taxNumber, cipher, onClose]);
 
   const onSubmit = (value) => {
     setTaxNumber(value.taxNumber);
@@ -64,7 +62,8 @@ const UserContextWrapper = ({ children }) => {
         <ModalContent>
           <ModalHeader>
             Bitte geben Sie Ihre Steuernummer an, um Ihre persönlichen Daten zu
-            entschlüsseln. [Ihre Steuernummer lautet für diesen Fall K12345678900]
+            entschlüsseln. [Ihre Steuernummer lautet für diesen Fall
+            K12345678900]
           </ModalHeader>
           <ModalBody>
             <form onSubmit={handleSubmit(onSubmit)}>

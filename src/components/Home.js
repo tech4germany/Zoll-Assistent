@@ -6,12 +6,14 @@ import {
   Center,
   Image,
   Spinner,
+  VStack,
 } from "@chakra-ui/react";
 import { UserContext } from "../context/UserContext";
 import Zoll from "../img/zoll.png";
+import DecryptModal from "./DecryptModal";
 
 const Home = () => {
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   return (
     <Container
@@ -27,20 +29,25 @@ const Home = () => {
       </Center>
       {user ? (
         <>
-          <Heading mb="1rem">Hallo {`${user.fName} ${user.lName}`}</Heading>
-
+          <Heading mb="1rem">
+            Hallo {`${user.firstName} ${user.lastName}`},
+          </Heading>
           <Text fontSize="lg">
-            Steuernummer: <b>{user.stNum}</b>
+            Steuernummer: <b>{user.taxNumber}</b>
           </Text>
-          <Text fontSize="lg">
-            Zu zahlender Betrag: <b>{user.toPay}</b> bis zum{" "}
-            <b>{user.dueDate}</b>
-          </Text>
+          <Text fontSize="lg">{user.flavour}</Text>
         </>
       ) : (
-        <Center>
-          <Spinner />
-        </Center>
+        <>
+          <DecryptModal />
+          <Center>
+            <VStack spacing="10">
+              <Heading>Loading...</Heading>
+              <Spinner />
+              <Text>Make sure you have scanned a valid QR Code.</Text>
+            </VStack>
+          </Center>
+        </>
       )}
     </Container>
   );

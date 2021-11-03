@@ -15,12 +15,8 @@ import { useForm } from "react-hook-form";
 
 import { UserContext } from "../context/UserContext";
 
-const DecryptionModal = ({}) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+const DecryptionModal = () => {
+  const { register, handleSubmit } = useForm();
 
   const [submitted, setSubmitted] = useState(false);
 

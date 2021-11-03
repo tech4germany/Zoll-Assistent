@@ -23,7 +23,7 @@ export const buff_to_base64 = (buff) =>
   btoa(String.fromCharCode.apply(null, buff));
 /**
  * Decrypts ciphertext encrypted with aesGcmEncrypt() using supplied password.
- *                                                                      (c) Chris Veness MIT Licence
+ * (c) Chris Veness MIT Licence
  *
  * @param   {String} ciphertext - Ciphertext to be decrypted.
  * @param   {String} password - Password to use to decrypt ciphertext.

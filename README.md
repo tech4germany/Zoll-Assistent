@@ -1,12 +1,49 @@
-# Getting Started with Create React App
+# Barrierefreie Bürgerkommunikation: QR-Code Verschlüsselungsdemo
+
+Für unser Projekt mit dem Zoll haben wir einen digitalen Prototypen designed. Dieser soll über einen QR-Code auf einem Brief erreichbar sein. Um den Bürger:innen unsere Leistungen anzubieten, brauchen wir personenbezogene Daten. Dabei wollen wir möglichst Datensparsam sein, also keine Nutzerdatenbank anlegen und verwalten. Wir wollen die Daten dort abgreifen, wo sie sowieso schon vorliegen, nämlich auf dem Brief.
+
+Wir legen also in dem QR-Code personenbezogene Daten ab. Damit diese von QR-Lesern vor der Weiterleitung in den Browser nicht ausgelesen werden können, verschlüsseln wir die Daten vorher. Der Nutzer muss dann bei Gebrauch der App seine Daten erst wieder entschlüsseln. Dazu verwendet er die Steuernummer, die er oben rechts auf dem Brief vom Zoll vorfindet.
+
+Diese kleine Anwendung dient nur der Demonstration, des Ver- und Entschlüsselungsprozesses.
+
+## Demo
+
+Eine Demonstration mit einigen Daten findet sich unter: `localhost:3000/#RelcCndCvtfeJ/ATCuvaHKORwn5tkhq4o6Du58DqG9K7LanAG+HsvBQfrwaOBHFO/fNZvkGtONLnrjlxnwnGgLds7tjudvW1e69XMTO92gvTUKg6k5CZZiAJq1nyY0trdm0SuRewVUEFaPV6I2vUZ5IxmgWoQe9CujBQQ820NZIV35VLzSdG41jsZ760G2F9fPh8oo/PP7rw0tOB8tIF6moWkDVqQaAqcfKW5MC3NcXbKfr2KnY0KQInpAtxdURPuCzkT9QZm5RZTts5NkM=`
+
+bzw. in einem QR-Code encodiert:
+
+![Verschlüsselte Daten](src/img/zoll.png)
+
+## Daten verschlüsseln
+
+Verschlüsselt wird ein JSON Objekt. Für diesen Fall:
+
+```json
+{
+  "firstName": "Max",
+  "lastName": "Mustermann",
+  "taxNumber": "K12345678900",
+  "flavour": "Alle Daten in der URL wurden sicher entschlüsselt! Sie liegen jetzt in deiner Session Storage."
+}
+```
+
+Diese Daten werden in einen String encodiert. Und dann `AES-GCM` verschlüsselt. Die URL, setzt sich dann folgendermaßen zusammen:
+
+`assistent.zoll.de/#` + `RelcCndCvtfeJ/ATCuvaHKORwn5tkhq4o6Du58DqG9K7LanAG+HsvBQfrwaOBHFO/fNZvkGtONLnrjlxnwnGgLds7tjudvW1e69XMTO92gvTUKg6k5CZZiAJq1nyY0trdm0SuRewVUEFaPV6I2vUZ5IxmgWoQe9CujBQQ820NZIV35VLzSdG41jsZ760G2F9fPh8oo/PP7rw0tOB8tIF6moWkDVqQaAqcfKW5MC3NcXbKfr2KnY0KQInpAtxdURPuCzkT9QZm5RZTts5NkM=`
+
+Dabei verwenden wir ein `#`
+
+
+
+## This Project uses Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+#### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +51,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
+#### `yarn build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,42 +61,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
+### Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

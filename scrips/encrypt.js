@@ -83,8 +83,8 @@ async function aesGcmDecrypt(ciphertext, password) {
 }
 
 const personalData = {
-  firstName: "Peter",
-  lastName: "Linde",
+  firstName: "Max",
+  lastName: "Mustermann",
   taxNumber: "K12345678900",
   flavour:
     "Alle Daten in der URL wurden sicher entschlüsselt! Sie liegen jetzt in deiner Session Storage.",

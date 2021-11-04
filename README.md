@@ -12,7 +12,7 @@ Eine Demonstration mit einigen Daten findet sich unter: `https://zoll-assistent.
 
 bzw. in einem QR-Code encodiert:
 
-![Verschlüsselte Daten](public/zoll.png)
+![Verschlüsselte Daten](public/assistentQR.png)
 
 ## Daten verschlüsseln
 

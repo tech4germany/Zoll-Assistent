@@ -8,11 +8,11 @@ Diese kleine Anwendung dient nur der Demonstration, des Ver- und Entschlüsselun
 
 ## Demo
 
-Eine Demonstration mit einigen Daten findet sich unter: `localhost:3000/#RelcCndCvtfeJ/ATCuvaHKORwn5tkhq4o6Du58DqG9K7LanAG+HsvBQfrwaOBHFO/fNZvkGtONLnrjlxnwnGgLds7tjudvW1e69XMTO92gvTUKg6k5CZZiAJq1nyY0trdm0SuRewVUEFaPV6I2vUZ5IxmgWoQe9CujBQQ820NZIV35VLzSdG41jsZ760G2F9fPh8oo/PP7rw0tOB8tIF6moWkDVqQaAqcfKW5MC3NcXbKfr2KnY0KQInpAtxdURPuCzkT9QZm5RZTts5NkM=`
+Eine Demonstration mit einigen Daten findet sich unter: `https://zoll-assistent.netlify.app/#RelcCndCvtfeJ/ATCuvaHKORwn5tkhq4o6Du58DqG9K7LanAG+HsvBQfrwaOBHFO/fNZvkGtONLnrjlxnwnGgLds7tjudvW1e69XMTO92gvTUKg6k5CZZiAJq1nyY0trdm0SuRewVUEFaPV6I2vUZ5IxmgWoQe9CujBQQ820NZIV35VLzSdG41jsZ760G2F9fPh8oo/PP7rw0tOB8tIF6moWkDVqQaAqcfKW5MC3NcXbKfr2KnY0KQInpAtxdURPuCzkT9QZm5RZTts5NkM=`
 
 bzw. in einem QR-Code encodiert:
 
-![Verschlüsselte Daten](src/img/zoll.png)
+![Verschlüsselte Daten](public/zoll.png)
 
 ## Daten verschlüsseln
 
@@ -31,9 +31,13 @@ Diese Daten werden in einen String encodiert. Und dann `AES-GCM` verschlüsselt.
 
 `assistent.zoll.de/#` + `RelcCndCvtfeJ/ATCuvaHKORwn5tkhq4o6Du58DqG9K7LanAG+HsvBQfrwaOBHFO/fNZvkGtONLnrjlxnwnGgLds7tjudvW1e69XMTO92gvTUKg6k5CZZiAJq1nyY0trdm0SuRewVUEFaPV6I2vUZ5IxmgWoQe9CujBQQ820NZIV35VLzSdG41jsZ760G2F9fPh8oo/PP7rw0tOB8tIF6moWkDVqQaAqcfKW5MC3NcXbKfr2KnY0KQInpAtxdURPuCzkT9QZm5RZTts5NkM=`
 
-Dabei verwenden wir ein `#`
+Dabei verwenden wir ein `#` (HTML-Fragment), damit die Daten nicht gleich an den Server übertragen werden.
 
+Die Verschlüsselung der Daten kann über das Script in `/scripts/encrypt.js` ausgeführt werden. Dazu kann man einfach die zu veschlüsselnde JSON anpassen und dass Programm dann mit `node encrypt.js` ausführen. 
 
+## Daten entschlüsseln
+
+Die Nutzer:in wird beim Aufruf der App dann dazu aufgefordert die Steuernummer einzugeben. Damit werden die Daten wieder entschlüsselt.
 
 ## This Project uses Create React App
 

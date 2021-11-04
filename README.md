@@ -8,7 +8,7 @@ Diese kleine Anwendung dient nur der Demonstration, des Ver- und Entschlüsselun
 
 ## Demo
 
-Eine Demonstration mit einigen Daten findet sich unter: `https://zoll-assistent.netlify.app/#RelcCndCvtfeJ/ATCuvaHKORwn5tkhq4o6Du58DqG9K7LanAG+HsvBQfrwaOBHFO/fNZvkGtONLnrjlxnwnGgLds7tjudvW1e69XMTO92gvTUKg6k5CZZiAJq1nyY0trdm0SuRewVUEFaPV6I2vUZ5IxmgWoQe9CujBQQ820NZIV35VLzSdG41jsZ760G2F9fPh8oo/PP7rw0tOB8tIF6moWkDVqQaAqcfKW5MC3NcXbKfr2KnY0KQInpAtxdURPuCzkT9QZm5RZTts5NkM=`
+Eine Demonstration mit einigen Daten findet sich [hier](https://zoll-assistent.netlify.app/#RelcCndCvtfeJ/ATCuvaHKORwn5tkhq4o6Du58DqG9K7LanAG+HsvBQfrwaOBHFO/fNZvkGtONLnrjlxnwnGgLds7tjudvW1e69XMTO92gvTUKg6k5CZZiAJq1nyY0trdm0SuRewVUEFaPV6I2vUZ5IxmgWoQe9CujBQQ820NZIV35VLzSdG41jsZ760G2F9fPh8oo/PP7rw0tOB8tIF6moWkDVqQaAqcfKW5MC3NcXbKfr2KnY0KQInpAtxdURPuCzkT9QZm5RZTts5NkM=).
 
 bzw. in einem QR-Code encodiert:
 
@@ -29,11 +29,22 @@ Verschlüsselt wird ein JSON Objekt. Für diesen Fall:
 
 Diese Daten werden in einen String encodiert. Und dann `AES-GCM` verschlüsselt. Die URL, setzt sich dann folgendermaßen zusammen:
 
-`assistent.zoll.de/#` + `RelcCndCvtfeJ/ATCuvaHKORwn5tkhq4o6Du58DqG9K7LanAG+HsvBQfrwaOBHFO/fNZvkGtONLnrjlxnwnGgLds7tjudvW1e69XMTO92gvTUKg6k5CZZiAJq1nyY0trdm0SuRewVUEFaPV6I2vUZ5IxmgWoQe9CujBQQ820NZIV35VLzSdG41jsZ760G2F9fPh8oo/PP7rw0tOB8tIF6moWkDVqQaAqcfKW5MC3NcXbKfr2KnY0KQInpAtxdURPuCzkT9QZm5RZTts5NkM=`
+```
+assistent.zoll.de/#
+```
+
+und
+
+```
+RelcCndCvtfeJ/ATCuvaHKORwn5tkhq4o6Du58DqG9K7LanAG+HsvBQfrwaOBHFO/
+fNZvkGtONLnrjlxnwnGgLds7tjudvW1e69XMTO92gvTUKg6k5CZZiAJq1nyY0trdm0
+SuRewVUEFaPV6I2vUZ5IxmgWoQe9CujBQQ820NZIV35VLzSdG41jsZ760G2F9fPh8o
+o/PP7rw0tOB8tIF6moWkDVqQaAqcfKW5MC3NcXbKfr2KnY0KQInpAtxdURPuCzkT9QZm5RZTts5NkM=
+```
 
 Dabei verwenden wir ein `#` (HTML-Fragment), damit die Daten nicht gleich an den Server übertragen werden.
 
-Die Verschlüsselung der Daten kann über das Script in `/scripts/encrypt.js` ausgeführt werden. Dazu kann man einfach die zu veschlüsselnde JSON anpassen und dass Programm dann mit `node encrypt.js` ausführen. 
+Die Verschlüsselung der Daten kann über das Script in `/scripts/encrypt.js` ausgeführt werden. Dazu kann man einfach die zu veschlüsselnde JSON anpassen und dass Programm dann mit `node encrypt.js` ausführen.
 
 ## Daten entschlüsseln
 
